@@ -12,7 +12,7 @@
     <div class="sec">
       <form @submit="submitForm">
         <div>
-          <input type="text">
+          <input type="text" v-model="trackName">
         </div>
         <div>
           <button>Submit</button>
@@ -24,9 +24,15 @@
 
 <script>
 export default {
+  data() {
+    return {
+      trackName: '',
+    };
+  },
   methods: {
     submitForm(e) {
       e.preventDefault();
+      this.$router.push(`/tracks/search/${this.trackName}`);
     }
   }
 };
