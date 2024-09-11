@@ -19,7 +19,8 @@ export default {
 
 #app {
   max-width: 1200px;
-  margin: 0 8px;
+  width: 100%;
+  margin: 0 12px;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -36,5 +37,25 @@ body {
   background-color: #1E201E;
   color: white;
   min-height: 100vh;
+}
+
+header {
+  margin: 40px 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.underline {
+  width: 100px
+}
+
+.text-center {
+  text-align: center;
+}
+
+.d-flex {
+  display: flex;
 }
 </style>

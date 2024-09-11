@@ -12,6 +12,7 @@
     <div class="sec">
       <form @submit="submitForm">
         <div>
+          <p v-if="error" class="sec error">{{ error }}</p>
           <input type="text" v-model="trackName">
         </div>
         <div>
@@ -27,11 +28,18 @@ export default {
   data() {
     return {
       trackName: '',
+      error: null,
     };
   },
   methods: {
     submitForm(e) {
       e.preventDefault();
+
+      if (this.trackName.length < 1) {
+        this.error = 'Track title missing.'
+        return;
+      }
+
       this.$router.push(`/tracks/search/${this.trackName}`);
     }
   }
@@ -92,7 +100,7 @@ button:hover::after {
   width: 100%;
 }
 
-.underline {
-  width: 100px
+.error {
+  color: red;
 }
 </style>
